@@ -35,7 +35,7 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest()) return Redirect::guest('login');
+	if (Auth::guest()) return Redirect::guest('/');
 });
 
 
@@ -43,6 +43,18 @@ Route::filter('auth.basic', function()
 {
 	return Auth::basic();
 });
+
+
+//controlamos todos los roles de usuarios desde aquí
+Route::filter('roles', function($ruta,$peticion,$roles,$redirect)
+{
+  
+  	$roles = explode("-", $roles);
+    if(!in_array(Auth::user()->role_id, $roles))
+        return Redirect::to($redirect);
+    	
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +69,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check()) return Redirect::to('/eventos');
 });
 
 /*

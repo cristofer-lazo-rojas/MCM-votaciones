@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>As a Form Element</title>
+		
+		<link href="css/demos.css" rel="stylesheet" />
+		<style>
+			ul {
+				margin-bottom: 3em;
+			}
+			.roundabout-holder {
+				width: 5em;
+				height: 5em;
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+				position: relative;
+				list-style: none;
+				top: -5px;
+			}
+			
+			.roundabout-moveable-item {
+				width: 12em;
+				height: 1.5em;
+				line-height: 1.5;
+				font-size: 16px;
+				text-align: center;
+				cursor: pointer;
+				color: #329;
+				font-family: Chalkboard, Comic Sans, awful-awful-font;
+			}
+			
+			.roundabout-in-focus {
+				cursor: auto;
+			}
+			
+			.monolith { 
+				background-color: #000;
+				position: absolute;
+				width: 17em;
+				top: 0em;
+				left: 7.5em;
+				z-index: 200;
+				height: 40em;
+			}
+			
+			.monolith .pad {
+				padding: 1em; 
+				text-align: center;
+				color: #999;
+			}
+			
+			form { margin-top: 5em; margin-bottom: 28px; margin-left: 224px }
+			form div { width: 80%; margin: 0 auto; }
+			.pad em { color: #eee; }
+			.part { float: left; display: inline; width: auto; }
+			.button { margin-left: 2em; }
+			.part.moving { margin-top: -1.70em;}
+			
+			.clear { display: block; clear: both; }
+
+
+			#carbonads-container {
+				clear: both;
+				margin-top: 1em;
+			}
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>As a Form Element</h1>
+		
+		<form action="#" method="post">
+			<div>
+				<div class="part">The</div>
+				<div class="part moving adjective">
+					<ul>
+						<li>quick</li>
+						<li>happy</li>
+						<li>apple</li>
+						<li>confused</li>
+						<li>drunk</li>
+					</ul>
+				</div>
+				<div class="part">brown fox</div>
+				<div class="part moving verb">
+					<ul>
+						<li>jumps</li>
+						<li>stumbles</li>
+						<li>backs</li>
+						<li>vomits</li>
+						<li>backflips</li>
+					</ul>
+				</div>				
+				<div class="part">over the</div>
+				<div class="part moving feeling">
+					<ul>
+						<li>lazy</li>
+						<li>white</li>
+						<li>sturdy</li>
+						<li>pickled</li>
+						<li>expired</li>
+					</ul>
+				</div>
+				<div class="part">dog.</div>
+				<div class="part button">
+					<input type="hidden" id="hidden-adjective" name="hidden-adjective" value="" />
+					<input type="hidden" id="hidden-verb" name="hidden-verb" value="" />
+					<input type="hidden" id="hidden-feeling" name="hidden-feeling" value="" />
+					<input type="submit" value="Post it!" name="post" id="post-it" />
+				</div>
+			</div>
+			
+			<span class="clear"></span>
+		</form>
+
+		
+		<div class="interact">
+		</div>
+		
+		<div class="return">
+			<a href="https://github.com/fredhq/roundabout">https://github.com/fredhq/roundabout</a>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script src="js/jquery.roundabout-shapes.js"></script>
+		<script src="js/jquery.easing.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$('.verb ul li').focus(function() {
+					$('#hidden-verb').val($(this).text());
+				});
+
+				$('.verb ul li').focus(function() {
+					$('#hidden-verb').val($(this).text());
+				});
+
+				$('.feeling ul li').focus(function() {
+					$('#hidden-feeling').val($(this).text());
+				});
+
+				$('.adjective ul li').focus(function() {
+					$('#hidden-adjective').val($(this).text());
+				});
+
+				$('ul').roundabout({
+					shape: 'waterWheel',
+					minOpacity: -1.0,
+					duration: 300,
+					easing: 'easeOutCubic'
+				});
+				
+				$('li').dblclick(function(e) {
+					e.preventDefault();
+					return false;
+				});
+				
+				$('form').submit(function(e) {
+					e.preventDefault();
+					alert('You think that the ' + $('#hidden-adjective').val() + ' brown fox ' + $('#hidden-verb').val() + ' over the ' + $('#hidden-feeling').val() + ' dog.');
+					return false;
+				});
+			});
+		</script>
+
+	</body>
+</html>

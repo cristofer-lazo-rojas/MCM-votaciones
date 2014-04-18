@@ -1,0 +1,12 @@
+/* 
+    Document   : ajax-validator
+    Created on : 02/03/2014, 09:22:05 PM
+    Author     : CRISTOFER
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.load{
+    background: url('../img/ajax-loader.gif') no-repeat right center #ffffff;
+    width: 16px;
+    height: 16px;
+}

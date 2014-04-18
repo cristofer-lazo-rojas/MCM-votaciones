@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- saved from url=(0053)http://fredhq.com/projects/roundabout/demos/animation -->
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Circular Animation</title>
+		
+		<link href="css/demos.css" rel="stylesheet">
+		<style>
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0 auto 320px;
+				position: relative;
+				top: 30px;
+				width: 5em;
+				height: 1.4em;
+				font-size: 4em;
+				line-height: 1.2;
+			}
+			li {
+				height: 1em;
+				width: 1em;
+				text-align: center;
+				cursor: pointer;
+				color: #fee330;
+			}
+				li.roundabout-in-focus {
+					cursor: default;
+				}
+				li.king {
+					position: absolute;
+					z-index: 200;
+					top: -50px;
+					left: -0.5em;
+				}
+
+			#carbonads-container {
+				clear: both;
+			}
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+
+		</style>
+	<style>
+	#adzerk_by {display:none}
+	/* horiz */
+	.carbonad {display:block; background: #fdfdfd; background-image: -moz-linear-gradient(top, #f8f8f8, #fdfdfd); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f8f8f8),color-stop(1, #fdfdfd)); border: 1px solid #d5d5d5; font-family: Lucida Grande, Arial, Helvetica, sans-serif; font-size: 11px; height: 118px; line-height: 15px; overflow: hidden; width: 300px;}
+	.carbonad-img {border: none; display: inline; float: left; height: 100px; margin: 9px; width: 130px;}
+	.carbonad-text {display:inline; float:left; width:142px; padding-top:13px;}
+	.carbonad-text a {color: #000000; font-weight: bold; text-decoration: none;}
+	.carbonad-tag {float: left; margin-top: 9px; text-align: center; width: 142px; color: #999999;}
+	.carbonad-tag a {color: #999999; text-decoration: none;}
+	</style>
+</head>
+	<body>
+		<h1>Circular Animation</h1>
+		
+		<ul class="roundabout-holder">
+			<li class="king"><img src="img/king.png" alt="The King"></li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+			<li class="star roundabout-moveable-item" >★</li>
+		</ul>
+		
+		<div class="interact">
+		</div>
+		
+		<div class="return">
+			<a href="https://github.com/fredhq/roundabout">https://github.com/fredhq/roundabout</a>
+		</div>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('ul').roundabout({
+					tilt: 8,
+					childSelector: 'li.star',
+					minZ: 100,
+					maxZ: 300
+				});
+				
+				setInterval(function() {
+					$('ul').roundabout('adjustBearing', 5);
+				}, 20);
+			});
+		</script>
+	
+</body></html>

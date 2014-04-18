@@ -16,6 +16,9 @@ define('LARAVEL_START', microtime(true));
 
 require __DIR__.'/../vendor/autoload.php';
 
+//MIS PROVEEDORES DE RECURSOS PERSONALIZADOS
+
+
 /*
 |--------------------------------------------------------------------------
 | Include The Compiled Class File

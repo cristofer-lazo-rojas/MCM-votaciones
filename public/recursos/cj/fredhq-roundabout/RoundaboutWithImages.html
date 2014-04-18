@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>A Roundabout With Images</title>
+		<link href="css/demos.css" rel="stylesheet">
+		<style>
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0 auto;
+				width: 42em;
+				height: 28em;
+			}
+			li {
+				height: 24em;
+				width: 24em;
+				text-align: center;
+				cursor: pointer;
+			}
+				li img {
+					width: 100%;
+				}
+				li.roundabout-in-focus {
+					cursor: default;
+				}
+			li span {
+				display: block;
+				padding-top: 6em;
+			}
+
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>With Images</h1>
+		
+		<ul>
+			<li><img src="img/award.png" alt="Award" /></li>
+			<li><img src="img/backpack.png" alt="Backpack" /></li>
+			<li><img src="img/bear.png" alt="Bear" /></li>
+			<li><img src="img/gun.png" alt="Gun" /></li>
+			<li><img src="img/high-five.png" alt="High-Five" /></li>
+			<li><img src="img/mustache.png" alt="Mustache" /></li>
+			<li><img src="img/sun.png" alt="Sun" /></li>
+		</ul>
+
+		
+		<div class="return">
+			<a href="https://github.com/fredhq/roundabout">https://github.com/fredhq/roundabout</a>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('ul').roundabout();
+			});
+		</script>
+	</body>
+</html>

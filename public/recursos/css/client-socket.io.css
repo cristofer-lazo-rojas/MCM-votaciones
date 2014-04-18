@@ -1,0 +1,24 @@
+/* 
+    Document   : client-socket.io
+    Created on : 04/03/2014, 06:49:29 AM
+    Author     : CRISTOFER
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#form-prueba {
+    margin-top: 10px;
+}
+.avatar-default {
+    background: url(../images/avatar.png) no-repeat right center;
+}
+
+.avatar { 
+    float: left;
+    margin-right: 10px;
+    background: #ffebef;
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+    -moz-force-broken-image-icon: 1;
+}

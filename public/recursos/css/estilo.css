@@ -1,0 +1,15 @@
+/* 
+    Document   : style.css
+    Created on : 24/02/2014, 03:21:41 PM
+    Author     : CRISTOFER
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.rigth{
+    right:0px;
+}

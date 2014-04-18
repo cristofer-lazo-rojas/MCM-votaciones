@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://fredhq.com/projects/roundabout/demos/3d -->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>3D</title>
+		<link href="css/demos.css" rel="stylesheet">
+		<style>
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0 auto;
+				width: 32em;
+				height: 24em;
+			}
+			li {
+				height: 20em;
+				width: 20em;
+				background-color: #ccc;
+				text-align: center;
+				cursor: pointer;
+				-webkit-backface-visibility: hidden;
+			}
+				li.roundabout-in-focus {
+					cursor: default;
+				}
+			li span {
+				display: block;
+				padding-top: 6em;
+			}
+
+			#carbonads-container {
+				clear: both;
+				margin-top: 1em;
+			}
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+		</style>
+	<style>#adzerk_by {display:none}
+
+/* horiz */
+.carbonad {display:block; background: #fdfdfd; background-image: -moz-linear-gradient(top, #f8f8f8, #fdfdfd); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f8f8f8),color-stop(1, #fdfdfd)); border: 1px solid #d5d5d5; font-family: Lucida Grande, Arial, Helvetica, sans-serif; font-size: 11px; height: 118px; line-height: 15px; overflow: hidden; width: 300px;}
+.carbonad-img {border: none; display: inline; float: left; height: 100px; margin: 9px; width: 130px;}
+.carbonad-text {display:inline; float:left; width:142px; padding-top:13px;}
+.carbonad-text a {color: #000000; font-weight: bold; text-decoration: none;}
+.carbonad-tag {float: left; margin-top: 9px; text-align: center; width: 142px; color: #999999;}
+.carbonad-tag a {color: #999999; text-decoration: none;}
+</style></head>
+	<body>
+		<h1>3D</h1>
+		
+		<ul class="roundabout-holder" style="padding: 0px; position: relative;">
+			<li class="roundabout-moveable-item" ><span>Block 1</span></li>
+			<li class="roundabout-moveable-item" ><span>Block 2</span></li>
+			<li class="roundabout-moveable-item" ><span>Block 3</span></li>
+			<li class="roundabout-moveable-item roundabout-in-focus"><span>Block 4</span></li>
+			<li class="roundabout-moveable-item" ><span>Block 5</span></li>
+		</ul>
+		
+		<div class="interact">
+			<p>
+				This will only appear 3D in browsers that support 3D CSS transforms.
+			</p>
+		</div>
+		
+		<div class="return">
+			<a href="https://github.com/fredhq/roundabout">https://github.com/fredhq/roundabout</a>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script src="js/jquery.easing.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('li')
+					.bind({
+						"reposition": function() {
+							var degrees = $(this).data('roundabout').degrees,
+							    roundaboutBearing = $(this).parent().data('roundabout').bearing,
+							    rotateY = Math.round(roundaboutBearing - degrees);
+							
+							$(this).css({
+								"-webkit-transform": "perspective(2000) rotateY(" + rotateY + "deg)",
+								"-moz-transform": "perspective(2000) rotateY(" + rotateY + "deg)",
+								"transform": "perspective(2000) rotateY(" + rotateY + "deg)"
+							});
+						}
+					})
+				
+				$('ul').roundabout({
+					minScale: 0.7,
+					easing: 'easeOutElastic',
+					duration: 1600
+				});
+			});
+		</script>
+
+	
+	</body>
+</html>

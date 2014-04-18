@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://fredhq.com/projects/roundabout/demos/facade# -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>Facade</title>
+		
+		<link href="css/demos.css" rel="stylesheet">
+		<style>
+			.facade {
+				width: 895px;
+				height: 398px;
+				overflow: hidden;
+				margin: 0 auto;
+				position: relative;
+				border: 8px solid #131313;
+			}
+			ul { 
+				list-style: none; 
+				margin: 0; 
+				padding: 0; 
+				width: 226px; 
+				height: 400px; 
+				position: absolute; 
+				overflow: hidden; 
+				top: 0px; 
+				z-index: 100;
+				background: #000 url('img/black_linen.png') scroll repeat 50% 50%;
+			}
+				ul.column1 { left: 0px; }
+				ul.column2 { left: 224px; }
+				ul.column3 { left: 448px; }
+				ul.column4 { left: 672px; }
+			
+			ul li { overflow: hidden; height: 400px; width: 225px;  }
+			ul li img { position: absolute; top: 0; }
+				ul.column1 img { left: 0px; }
+				ul.column2 img { left: -225px; }
+				ul.column3 img { left: -450px; }
+				ul.column4 img { left: -675px; }
+
+			#carbonads-container {
+				clear: both;
+				margin-top: 1em;
+			}
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+		</style>
+	<style>#adzerk_by {display:none}
+
+/* horiz */
+.carbonad {display:block; background: #fdfdfd; background-image: -moz-linear-gradient(top, #f8f8f8, #fdfdfd); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f8f8f8),color-stop(1, #fdfdfd)); border: 1px solid #d5d5d5; font-family: Lucida Grande, Arial, Helvetica, sans-serif; font-size: 11px; height: 118px; line-height: 15px; overflow: hidden; width: 300px;}
+.carbonad-img {border: none; display: inline; float: left; height: 100px; margin: 9px; width: 130px;}
+.carbonad-text {display:inline; float:left; width:142px; padding-top:13px;}
+.carbonad-text a {color: #000000; font-weight: bold; text-decoration: none;}
+.carbonad-tag {float: left; margin-top: 9px; text-align: center; width: 142px; color: #999999;}
+.carbonad-tag a {color: #999999; text-decoration: none;}
+</style></head>
+	<body>
+		<h1>Facade</h1>
+		
+		<div class="facade">
+			<ul class="column1 roundabout-holder">
+				<li class="roundabout-moveable-item roundabout-in-focus"><img src="img/image1.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image2.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image3.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image4.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image5.jpg" alt="First Image"></li>
+			</ul>
+			<ul class="column2 roundabout-holder">
+				<li class="roundabout-moveable-item roundabout-in-focus"><img src="img/image1.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image2.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image3.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image4.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image5.jpg" alt="First Image"></li>
+			</ul>
+			<ul class="column3 roundabout-holder">
+				<li class="roundabout-moveable-item roundabout-in-focus"><img src="img/image1.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image2.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image3.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image4.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image5.jpg" alt="First Image"></li>
+			</ul>
+			<ul class="column4 roundabout-holder">
+				<li class="roundabout-moveable-item roundabout-in-focus"><img src="img/image1.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image2.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image3.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image4.jpg" alt="First Image"></li>
+				<li class="roundabout-moveable-item"><img src="img/image5.jpg" alt="First Image"></li>
+			</ul>
+		</div>
+		
+		<div class="interact">
+			<a href="#" id="advance">Next Image</a>
+		</div>
+		
+		<div class="return">
+			<a href="https://github.com/fredhq/roundabout">https://github.com/fredhq/roundabout</a>
+		</div>
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script src="js/jquery.roundabout-shapes.js"></script>
+		<script src="js/jquery.easing.js"></script>
+		<script>
+			$(document).ready(function() {
+				var i = 0,
+					settings = [
+						{ duration: 1200, easing: 'easeOutBounce' },
+						{ duration: 1600, easing: 'easeOutElastic' },
+						{ duration: 600, easing: 'easeOutQuad' },
+						{ duration: 1000, easing: 'easeOutBack' }
+					];
+				
+				$('ul.column1, ul.column3').roundabout({
+					clickToFocus: false,
+					minOpacity: 0,
+					minScale: 0,
+					minZ: 0,
+					duration: 1500,
+					shape: 'rollerCoaster'
+				});
+				
+				$('ul.column2, ul.column4').roundabout({
+					clickToFocus: false,
+					minOpacity: 0,
+					minScale: 0,
+					minZ: 0,
+					reflect: true,
+					duration: 1500,
+					shape: 'rollerCoaster'
+				});
+				
+				$('#advance').click(function() {
+					if ($('.column1').data("roundabout").animating || $('.column4').data("roundabout").animating) {
+						return false;
+					}
+					
+					i++;
+					i = i++ % settings.length;
+					
+					// fade out link
+					$(this).fadeTo(400, 0.5);
+					
+					$('.column1').roundabout('animateToNextChild', settings[i].duration, settings[i].easing);
+					setTimeout(function() { $('.column2').roundabout('animateToNextChild', settings[i].duration + 100, settings[i].easing); }, 100);
+					setTimeout(function() { $('.column3').roundabout('animateToNextChild', settings[i].duration + 200, settings[i].easing); }, 200);
+					setTimeout(function() { $('.column4').roundabout('animateToNextChild', settings[i].duration + 250, settings[i].easing, function() { $('#advance').fadeTo(400, 1); }); }, 300);
+					
+					return false;
+				});
+			});
+		</script>
+		<script type="text/javascript">
+			// <![CDATA[
+			var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+			document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+			// ]]>
+			</script><script src="./Facade_files/ga.js" type="text/javascript"></script>
+			<script type="text/javascript">
+			// <![CDATA[
+			try {
+				var pageTracker = _gat._getTracker("UA-12086558-1");
+				pageTracker._trackPageview();
+			} catch(err) {}
+			// ]]>
+		</script>
+	
+</body></html>

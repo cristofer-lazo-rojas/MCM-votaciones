@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>A Standard Roundabout</title>
+		
+		<link href="css/demos.css" rel="stylesheet">
+		<style>
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0 auto;
+				width: 42em;
+				height: 24em;
+			}
+			li {
+				height: 20em;
+				width: 30em;
+				background-color: #ccc;
+				text-align: center;
+				cursor: pointer;
+			}
+				li.roundabout-in-focus {
+					cursor: default;
+				}
+			li span {
+				display: block;
+				padding-top: 6em;
+			}
+
+			#carbonads-container .carbonad {
+				margin: 0 auto;
+			}
+		</style>
+	<style>
+	#adzerk_by {display:none}
+	/* horiz */
+	.carbonad {display:block; background: #fdfdfd; background-image: -moz-linear-gradient(top, #f8f8f8, #fdfdfd); background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f8f8f8),color-stop(1, #fdfdfd)); border: 1px solid #d5d5d5; font-family: Lucida Grande, Arial, Helvetica, sans-serif; font-size: 11px; height: 118px; line-height: 15px; overflow: hidden; width: 300px;}
+	.carbonad-img {border: none; display: inline; float: left; height: 100px; margin: 9px; width: 130px;}
+	.carbonad-text {display:inline; float:left; width:142px; padding-top:13px;}
+	.carbonad-text a {color: #000000; font-weight: bold; text-decoration: none;}
+	.carbonad-tag {float: left; margin-top: 9px; text-align: center; width: 142px; color: #999999;}
+	.carbonad-tag a {color: #999999; text-decoration: none;}
+	</style>
+</head>
+	<body>
+		<h1>Standard</h1>
+		
+		<ul class="roundabout-holder" style="padding: 0px; position: relative;">
+			<li class="roundabout-moveable-item" style="position: absolute; opacity: 1;"><span>Block 1</span></li>
+			<li class="roundabout-moveable-item" style="position: absolute; opacity: 1;"><span>Block 2</span></li>
+			<li class="roundabout-moveable-item" style="position: absolute; opacity: 1;"><span>Block 3</span></li>
+			<li class="roundabout-moveable-item roundabout-in-focus" style="position: absolute; opacity: 1;"><span>Block 4</span></li>
+			<li class="roundabout-moveable-item" style="position: absolute; opacity: 1;"><span>Block 5</span></li>
+		</ul>
+		
+
+		<div class="interact">
+		</div>		
+		
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.roundabout.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('ul').roundabout();
+			});
+		</script>
+		
+	
+</body></html>

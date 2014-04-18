@@ -27,6 +27,7 @@ return array(
 	*/
 
 	'default' => 'mysql',
+        //'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'database',
+			'database'  => 'db_mcm',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
@@ -66,9 +67,9 @@ return array(
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
-			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'database' => 'db_mcm',
+			'username' => 'postgres',
+			'password' => 'root',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'schema'   => 'public',
@@ -110,8 +111,8 @@ return array(
 	*/
 
 	'redis' => array(
-
-		'cluster' => true,
+                
+		'cluster' => true,// true -> default
 
 		'default' => array(
 			'host'     => '127.0.0.1',
